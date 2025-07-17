@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Research Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-shield-alt"></i> Security Research Scanner</h1>
+            <p class="disclaimer">⚠️ FOR AUTHORIZED TESTING AND EDUCATIONAL PURPOSES ONLY ⚠️</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="target-input">
+                    <label for="target-url">Target URL:</label>
+                    <input type="url" id="target-url" placeholder="https://example.com" required>
+                    <button id="start-scan" class="btn-primary">
+                        <i class="fas fa-search"></i> Start Scan
+                    </button>
+                </div>
+
+                <div class="scan-options">
+                    <h3>Scan Options</h3>
+                    <div class="options-grid">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="sql-injection" checked>
+                            <span class="checkmark"></span>
+                            SQL Injection
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="xss" checked>
+                            <span class="checkmark"></span>
+                            Cross-Site Scripting (XSS)
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="directory-traversal" checked>
+                            <span class="checkmark"></span>
+                            Directory Traversal
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="csrf" checked>
+                            <span class="checkmark"></span>
+                            CSRF Detection
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="security-headers" checked>
+                            <span class="checkmark"></span>
+                            Security Headers
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="ssl-tls" checked>
+                            <span class="checkmark"></span>
+                            SSL/TLS Analysis
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="endpoint-discovery" checked>
+                            <span class="checkmark"></span>
+                            Endpoint Discovery
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="auth-bypass" checked>
+                            <span class="checkmark"></span>
+                            Authentication Bypass
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="scan-status">
+                    <div id="progress-container" class="hidden">
+                        <div class="progress-bar">
+                            <div id="progress-fill"></div>
+                        </div>
+                        <span id="progress-text">Initializing scan...</span>
+                    </div>
+                </div>
+
+                <div class="results-tabs">
+                    <button class="tab-button active" data-tab="overview">Overview</button>
+                    <button class="tab-button" data-tab="vulnerabilities">Vulnerabilities</button>
+                    <button class="tab-button" data-tab="endpoints">Endpoints</button>
+                    <button class="tab-button" data-tab="headers">Headers</button>
+                    <button class="tab-button" data-tab="logs">Logs</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="overview" class="tab-pane active">
+                        <div class="overview-cards">
+                            <div class="card">
+                                <h4>Scan Status</h4>
+                                <div id="scan-status-text">Ready to scan</div>
+                            </div>
+                            <div class="card">
+                                <h4>Vulnerabilities Found</h4>
+                                <div id="vuln-count">0</div>
+                            </div>
+                            <div class="card">
+                                <h4>Endpoints Discovered</h4>
+                                <div id="endpoint-count">0</div>
+                            </div>
+                            <div class="card">
+                                <h4>Risk Level</h4>
+                                <div id="risk-level">Unknown</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vulnerabilities" class="tab-pane">
+                        <div id="vuln-results"></div>
+                    </div>
+
+                    <div id="endpoints" class="tab-pane">
+                        <div id="endpoint-results"></div>
+                    </div>
+
+                    <div id="headers" class="tab-pane">
+                        <div id="header-results"></div>
+                    </div>
+
+                    <div id="logs" class="tab-pane">
+                        <div id="log-results"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scanner.js"></script>
+</body>
+</html>
